@@ -34,15 +34,6 @@ At startup the entrypoint fails fast if any is unset, base64-decodes
 `OCI_CONFIG_PROFILE=OCI_AGENT`, `OCI_MCP_AUTH_TYPE=api_key`, unsets the key
 variable, and `exec`s the server.
 
-### DNS (TCP fallback)
-
-The entrypoint exports `RES_OPTIONS=use-vc`, forcing the glibc resolver to use
-**TCP** for DNS. Some hosts (notably Docker-in-Docker) have UDP `:53` blocked, in
-which case name resolution fails and every OCI call hangs. `RES_OPTIONS` is
-honoured by glibc and works without root or edits to the read-only
-`/etc/resolv.conf`. As an alternative at the run level you can pass
-`--dns-option use-vc` to `docker run`.
-
 ## Build
 
 The image must be built **in the same Docker daemon that OpenCode uses** (the
