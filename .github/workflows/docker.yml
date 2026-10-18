@@ -37,9 +37,8 @@ jobs:
       - name: Build and push amd64 (latest + amd64 + timestamp + branch)
         uses: docker/build-push-action@v5
         with:
-          build-args: |
-            DOCKER_GID=998
           context: .
+          file: ./Dockerfile.oci-mcp
           platforms: linux/amd64
           push: true
           tags: |
@@ -51,9 +50,8 @@ jobs:
         if: ${{ inputs.dockerimagetag }}
         uses: docker/build-push-action@v5
         with:
-          build-args: |
-            DOCKER_GID=998
           context: .
+          file: ./Dockerfile.oci-mcp
           platforms: linux/amd64
           push: true
           tags: |
@@ -61,9 +59,8 @@ jobs:
       - name: Build and push arm64 (arch64 + arm64 + branch)
         uses: docker/build-push-action@v5
         with:
-          build-args: |
-            DOCKER_GID=998
           context: .
+          file: ./Dockerfile.oci-mcp
           platforms: linux/arm64
           push: true
           tags: |

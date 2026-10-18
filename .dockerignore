@@ -1,0 +1,18 @@
+# Never send secrets or VCS data into the build context.
+.git
+.gitignore
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+key.pem
+config
+.oci/
+
+# Not needed to build the image.
+README.md
+build.sh
+.env.example
+.dockerignore

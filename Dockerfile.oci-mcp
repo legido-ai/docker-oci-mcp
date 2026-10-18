@@ -1,0 +1,8 @@
+FROM python:3.13-slim
+
+RUN python -m venv /opt/oci-mcp \
+    && /opt/oci-mcp/bin/pip install --no-cache-dir oracle.oci-cloud-mcp-server==2.2.3
+
+COPY --chmod=755 oci-mcp-entrypoint.sh /usr/local/bin/oci-mcp-entrypoint
+USER 10001:10001
+ENTRYPOINT ["/usr/local/bin/oci-mcp-entrypoint"]

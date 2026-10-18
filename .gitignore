@@ -1,6 +1,26 @@
+# Secrets and credentials
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+*.key.pem
+*.p12
+*.pfx
+key.pem
+.oci/
+.oci_config
+oci_config
+
+# Python
 .venv
 env/
 venv/
 env.bak/
 venv.bak/
+__pycache__/
+*.py[cod]
+
+# Tooling / editor
+*.swp
+.DS_Store
